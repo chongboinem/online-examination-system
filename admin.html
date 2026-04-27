@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Examina</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Simple utility to hide sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .content-section.active-section {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <a href="login.html" class="logo">
+            <i class="fas fa-cube"></i> Examina
+        </a>
+        
+        <ul class="menu-items">
+            <!-- Added data-target attributes for navigation logic -->
+            <li><a href="#" class="nav-link active" data-target="dashboard-section"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="#" class="nav-link" data-target="students-section"><i class="fas fa-user-graduate"></i> Students</a></li>
+            <li><a href="#" class="nav-link" data-target="examiners-section"><i class="fas fa-chalkboard-teacher"></i> Examiners</a></li>
+            <li><a href="#" class="nav-link" data-target="settings-section"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header-bar">
+            <!-- Dynamic Title based on section -->
+            <h1 id="page-title">Overview</h1>
+            <div class="user-profile">
+                <span>Super Admin</span>
+                <div class="avatar">SA</div>
+            </div>
+        </header>
+
+        <!-- =========================== -->
+        <!-- 1. DASHBOARD SECTION        -->
+        <!-- =========================== -->
+        <div id="dashboard-section" class="content-section active-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-info">
+                        <h3>1,250</h3>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="stat-info">
+                        <h3>45</h3>
+                        <p>Active Exams</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chalkboard"></i></div>
+                    <div class="stat-info">
+                        <h3>28</h3>
+                        <p>Examiners</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="recent-section">
+                <h2>Recent Registrations</h2>
+                <div class="table-container">
+                    <table id="recent-users-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="user-name">John Smith</td>
+                                <td class="user-role">Student</td>
+                                <td>Oct 24, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td><button class="action-btn edit-btn">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td class="user-name">Sarah Connor</td>
+                                <td class="user-role">Examiner</td>
+                                <td>Oct 23, 2025</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn approve-btn">Approve</button>
+                                    <button class="action-btn reject-btn">Reject</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="user-name">Michael Doe</td>
+                                <td class="user-role">Student</td>
+                                <td>Oct 22, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td><button class="action-btn edit-btn">Edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========================== -->
+        <!-- 2. STUDENTS SECTION         -->
+        <!-- =========================== -->
+        <div id="students-section" class="content-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Student Directory</h2>
+                <button class="action-btn" style="background-color: var(--color-secondary);"><i class="fas fa-plus"></i> Add New Student</button>
+            </div>
+            
+            <div class="table-container">
+                <table id="students-list-table">
+                    <thead>
+                        <tr>
+                            <th>Enrollment No.</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Year</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Student Rows -->
+                        <tr>
+                            <td>ADTU/0/2024-27/BCAM/001</td>
+                            <td class="user-name">Alice Johnson</td>
+                            <td>BCA</td>
+                            <td>1st</td>
+                            <td><span class="status active">Active</span></td>
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>ADTU/0/2024-27/BCAM/002</td>
+                            <td class="user-name">Bob Williams</td>
+                            <td>BCA</td>
+                            <td>1st</td>
+                            <td><span class="status active">Active</span></td>
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                         <tr>
+                            <td>ADTU/0/2023-26/MCA/045</td>
+                            <td class="user-name">Charlie Brown</td>
+                            <td>MCA</td>
+                            <td>2nd</td>
+                            <td><span class="status pending">Inactive</span></td>
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- =========================== -->
+        <!-- 3. EXAMINERS SECTION        -->
+        <!-- =========================== -->
+        <div id="examiners-section" class="content-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Faculty Directory</h2>
+                <button class="action-btn" style="background-color: var(--color-secondary);"><i class="fas fa-plus"></i> Add New Examiner</button>
+            </div>
+
+            <div class="table-container">
+                <table id="examiners-list-table">
+                    <thead>
+                        <tr>
+                            <th>Faculty ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Teacher Rows -->
+                        <tr>
+                            <td>FAC/CS/001</td>
+                            <td class="user-name">Dr. Alan Grant</td>
+                            <td>Computer Science</td>
+                            <td>Professor</td>
+                            <td><span class="status active">Active</span></td>
+                            <!-- Important: user-role hidden data for modal logic -->
+                            <td class="user-role" style="display:none;">Examiner</td> 
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>FAC/IT/042</td>
+                            <td class="user-name">Prof. Ellen Ripley</td>
+                            <td>Information Tech</td>
+                            <td>Assistant Prof</td>
+                            <td><span class="status active">Active</span></td>
+                            <td class="user-role" style="display:none;">Examiner</td>
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>FAC/CS/089</td>
+                            <td class="user-name">Dr. Ian Malcolm</td>
+                            <td>Mathematics</td>
+                            <td>Guest Lecturer</td>
+                            <td><span class="status pending">On Leave</span></td>
+                            <td class="user-role" style="display:none;">Examiner</td>
+                            <td><button class="action-btn edit-btn">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- =========================== -->
+        <!-- 4. SETTINGS SECTION (Placeholder) -->
+        <!-- =========================== -->
+        <div id="settings-section" class="content-section">
+            <h2>System Settings</h2>
+            <p style="color: #777; margin-top: 10px;">Global configurations will appear here.</p>
+        </div>
+
+    </main>
+
+    <!-- Edit User Modal (Shared) -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-user-form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select id="edit-role">
+                        <option value="Student">Student</option>
+                        <option value="Examiner">Examiner</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Save Changes</button>
+                
+                <button type="button" id="delete-user-btn" class="btn-submit" style="background-color: #d93025; margin-top: 15px;">
+                    <i class="fas fa-trash"></i> Delete Profile
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

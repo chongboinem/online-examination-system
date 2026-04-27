@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="exam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="fullscreen"> 
+    <div class="container">
+   
+        
+        <header class="header">
+            <div class="header-left">
+                <span class="website-name">Examina</span>
+            </div>
+            <div class="header-center">
+                <span class="subject-name">Web Technology - WEBTECH1010</span>
+            </div>
+            <div class="header-right">
+                <div class="header-time-controls">
+                    <div class="timer">01:09:68</div>
+                    <button class="submit-btn" onclick="alert('Submitting Exam...')">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-layout">
+            
+            <div class="question-column">
+                
+                <div class="card question-card">
+                    <div id="question-content-container">
+                        
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button class="nav-btn flag"><i class="fas fa-flag"></i> Flag</button>
+                    <button class="nav-btn doubt"><i class="fas fa-question-circle"></i> Doubt</button>
+                    <button class="nav-btn next">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <aside class="status-column">
+                <div class="card status-card">
+                    <div class="status-section">
+                        <h4>MCQ - 1 mark</h4>
+                        <div class="q-grid">
+                            <div class="q-bubble">1</div>
+                            <div class="q-bubble">2</div>
+                            <div class="q-bubble">3</div>
+                            <div class="q-bubble">4</div>
+                            <div class="q-bubble">5</div>
+                            <div class="q-bubble">6</div>
+                            <div class="q-bubble">7</div>
+                            <div class="q-bubble">8</div>
+                            <div class="q-bubble">9</div>
+                            <div class="q-bubble">10</div>
+                        </div>
+                    </div>
+
+                    <div class="status-section">
+                        <h4>Short Answer - 2 marks</h4>
+                        <div class="q-grid">
+                            <div class="q-bubble">11</div>
+                            <div class="q-bubble">12</div>
+                            <div class="q-bubble">13</div>
+                            <div class="q-bubble">14</div>
+                            <div class="q-bubble">15</div>
+                            <div class="q-bubble">16</div>
+                            <div class="q-bubble">17</div>
+                            <div class="q-bubble">18</div>
+                            <div class="q-bubble">19</div>
+                            <div class="q-bubble">20</div>
+                        </div>
+                    </div>
+
+                    <div class="status-section last-section">
+                        <h4>Long Answer - 10 marks</h4>
+                        <div class="q-grid">
+                            <div class="q-bubble">21</div>
+                            <div class="q-bubble">22</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <p class="progress-text">Progress: 0/22 answered</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="instructions">
+                </div>
+                 
+            </aside>
+        </main>
+    </div>
+    <script src="exam.js"></script>
+</body>
+</html>

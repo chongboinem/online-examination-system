@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><i class="fas fa-cube"></i>Examina</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                <h2>Admins</h2>
+                <p>Manage users, system settings, and generate reports</p>
+                <button id="btn-admin" class="btn btn-dark">Login</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                <h2>Examiners</h2>
+                <p>Create exams, grade submissions, and monitor student progress</p>
+                <button id="btn-examiner" class="btn btn-dark">Login</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2>Students</h2>
+                <p>Access exams, view results, and manage your profile</p>
+                <button id="btn-student" class="btn btn-dark">Login</button>
+            </div>
+        </div>
+    </main>
+    
+    <div id="student-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" data-target="student-modal">&times;</span>
+            <h2>Student Login</h2>
+            <form id="student-login-form">
+                <div class="form-group">
+                    <label>Exam Code</label>
+                    <input type="text" id="exam-code" required placeholder="e.g. WEBTECH1010">
+                </div>
+                <div class="form-group">
+                    <label>Enrollment Number</label>
+                    <input type="text" id="enrollment-number" required placeholder="e.g. ADTU/...">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="student-password" required>
+                </div>
+                <p class="error-text" id="student-error"></p>
+                <button type="submit" class="btn btn-dark">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" data-target="admin-modal">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label>Admin ID</label>
+                    <input type="text" id="admin-id" required placeholder="e.g. ADMIN01">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <p class="error-text" id="admin-error"></p>
+                <button type="submit" class="btn btn-dark">Access Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="examiner-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" data-target="examiner-modal">&times;</span>
+            <h2>Examiner Login</h2>
+            <form id="examiner-login-form">
+                <div class="form-group">
+                    <label>Faculty Email</label>
+                    <input type="email" id="examiner-email" required placeholder="faculty@university.edu">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="examiner-password" required>
+                </div>
+                <p class="error-text" id="examiner-error"></p>
+                <button type="submit" class="btn btn-dark">Access Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body> 
+</html>

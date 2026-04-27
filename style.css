@@ -1,0 +1,349 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+body {
+    position: relative;
+    overflow-x: hidden;  
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fc;
+    color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* --- BACKGROUND SHAPES --- */
+
+body::before {
+    content: ''; /* Pseudo-elements must have a content property */
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background-color: #b0c0dc;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    z-index: -1; /* Pushes the shape behind all other content */
+}
+
+/* This is the second shape: a smaller circle */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background-color: #859dc8;
+    border-radius: 50%; /* Makes it a perfect circle */
+    z-index: -1;
+}
+main::before {
+    content: '';
+    position: absolute;
+    bottom: -4%;
+    left: -2%;
+    width: 200px;
+    height: 200px;
+    background-color: #cad5e8; 
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    z-index: -1; 
+}
+
+main::after {
+    content: '';
+    position: absolute;
+    bottom: -8%;
+    left: -4%;
+    width: 270px;
+    height: 270px;
+    background-color: #4468a7; 
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    z-index: -2; 
+}
+/* Header */
+header {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f5f7fc;
+}
+
+nav {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 2.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #371a6c;
+}
+
+.nav-links {
+    font-size: 20px;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a.active {
+  color: #111;
+  font-weight: 600;
+  border-bottom: 2px solid #6b4de6;
+  padding-bottom: 5px;
+}
+
+/* Main Section */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+    position: relative; 
+    overflow: hidden;   
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    width: 320px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* --- SHAPES INSIDE THE CARDS --- */
+
+/* First circle shape */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background-color: #97b8f3; /* A very light color, same as the page background */
+    border-radius: 50%;
+    z-index: 1; /* Keep it below the text but above the card background */
+}
+
+/* Second, smaller circle shape */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -70px;
+    width: 120px;
+    height: 120px;
+    background-color: #f4f7fc;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* We need to make sure the card content stays on top of the shapes */
+.card-icon,
+.card h2,
+.card p,
+.card .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: #4b4e6d;
+  color: #fff;
+}
+
+.card-icon {
+  font-size: 8rem;
+  color: #9cb4da;
+  margin-bottom: 10px;
+  margin-top: 60px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-icon {
+  color: #fff;
+}
+
+.card h2 {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #1d2031;
+  line-height: 1.6;
+  font-size: 1.3rem;
+  margin-top: -20px;
+  transition: color 0.3s ease;
+}
+
+.card:hover p {
+  color: #e0e0e0;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 12px 35px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 250px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.btn-dark {
+  background-color: #3d405b;
+  color: #ffffff;
+}
+
+.card:hover .btn-dark {
+  background-color: #ffffff;
+  color: #3d405b;
+}
+
+
+.btn-dark:hover {
+  background-color: #2a2c3d;
+}
+/* --- MODAL STYLES --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* Add this to style the placeholder text in the new input fields */
+.form-group input::placeholder {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.modal-content .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+    max-width: 350px;
+  }
+}
+
+/* Style for the login error message */
+.error-text {
+    color: #d93025; /* A standard error red color */
+    font-size: 0.9em;
+    min-height: 1.2em; /* Prevents the button from jumping when the message appears */
+    text-align: center;
+}
+
